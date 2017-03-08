@@ -27,7 +27,7 @@ import android.support.annotation.NonNull;
 
 import com.gcssloop.diycode_sdk.utils.CacheUtil;
 import com.gcssloop.diycode_sdk.utils.Constant;
-import com.gcssloop.gcs_log.Logger;
+import com.gcssloop.log.Logger;
 
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
