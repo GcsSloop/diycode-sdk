@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-03-08 01:01:18
+ * Last modified 2017-03-09 23:34:59
  *
  * GitHub:  https://github.com/GcsSloop
  * Website: http://www.gcssloop.com
@@ -22,17 +22,15 @@
 
 package com.gcssloop.diycode_sdk.api.login.api;
 
-import com.gcssloop.diycode_sdk.api.base.bean.State;
 import com.gcssloop.diycode_sdk.api.login.bean.Token;
 import com.gcssloop.diycode_sdk.utils.Constant;
 
 import retrofit2.Call;
-import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-interface LoginService {
+public interface TokenService {
 
     //--- Token ------------------------------------------------------------------------------------
 
@@ -66,32 +64,4 @@ interface LoginService {
     @FormUrlEncoded
     Call<Token> refreshToken(@Field("client_id") String client_id, @Field("client_secret") String client_secret,
                              @Field("grant_type") String grant_type, @Field("refresh_token") String refresh_token);
-
-
-    //--- devices -------------------------------------------------------------------------------
-
-    /**
-     * 记录用户 Device 信息，用于 Push 通知。
-     * 请在每次用户打开 App 的时候调用此 API 以便更新 Token 的 last_actived_at 让服务端知道这个设备还活着。
-     * Push 将会忽略那些超过两周的未更新的设备。
-     *
-     * @param platform 平台 ["ios", "android"]
-     * @param token    令牌 token
-     * @return 是否成功
-     */
-    @POST("devices.json")
-    @FormUrlEncoded
-    Call<State> updateDevices(@Field("platform") String platform, @Field("token") String token);
-
-    /**
-     * 删除 Device 信息，请注意在用户登出或删除应用的时候调用，以便能确保清理掉
-     *
-     * @param platform 平台 ["ios", "android"]
-     * @param token    令牌 token
-     * @return 是否成功
-     */
-    @DELETE("devices.json")
-    Call<State> deleteDevices(@Field("platform") String platform, @Field("token") String token);
-
-
 }
