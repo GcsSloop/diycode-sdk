@@ -12,6 +12,8 @@
 
 > 例如，让身份认证机制的透明化，用户正常登录后可以直接调用 API ，不需要为每一次请求都手动添加认证信息和捕获异常状态，假如如果用户操作了没有权限的内容，会返回错误信息，程序可以根据错误信息进一步的处理。
 
+目前 SDK 是 Beta 公测版，可能某些接口是有问题的，如果使用过程中遇到了问题，可以提交 Issues 反馈问题详情，以方便我在后续版本中修复。
+
 ## 创作动机
 
  [Diycode 社区、项目、News、sites 的 API 发布了](https://www.diycode.cc/topics/411)
@@ -91,7 +93,7 @@ protected void onStop() {
 }
 ```
 
-**如果想要了解更多的 API 作用的话请查看 [在线文档](https://jitpack.io/com/github/GcsSloop/diycode-sdk/0.0.3/javadoc/) 。**
+**如果想要了解更多的 API 的话请查看 [在线文档](https://jitpack.io/com/github/GcsSloop/diycode-sdk/0.0.3/javadoc/) 。**
 
 ## Demo 效果
 
