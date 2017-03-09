@@ -93,7 +93,7 @@ protected void onStop() {
 }
 ```
 
-**如果想要了解更多的 API 的话请查看 [在线文档](https://jitpack.io/com/github/GcsSloop/diycode-sdk/0.0.3/javadoc/) 。**
+**如果想要了解更多的 API 的话请查看 [在线文档](https://jitpack.io/com/github/GcsSloop/diycode-sdk/0.0.4/javadoc/) 。**
 
 ## Demo 效果
 
