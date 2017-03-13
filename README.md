@@ -97,7 +97,7 @@ protected void onStop() {
 
 ## Demo 效果
 
-这是我开发的一个尚未完成的客户端，使用了这个 sdk 后，每一个 Activity(Fragment) 的代码量不超过 300 行就能完成所有功能。
+这是我开发的一个尚未完成的客户端，使用了这个 sdk 后，每一个 Activity(Fragment) 的代码量不超过 300 行就能完成所有功能。(Demo同样是公开的，放在 [diycode](https://github.com/GcsSloop/diycode) 中)
 
 ![](https://diycode.b0.upaiyun.com/photo/2017/01b87d582182e34dac091269a5e8d7ba.gif)
 
