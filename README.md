@@ -93,7 +93,7 @@ protected void onStop() {
 }
 ```
 
-**如果想要了解更多的 API 的话请查看 [在线文档](https://jitpack.io/com/github/GcsSloop/diycode-sdk/0.0.4/javadoc/) 。**
+**如果想要了解更多的 API 的话请查看 [在线文档](https://jitpack.io/com/github/GcsSloop/diycode-sdk/0.0.5/javadoc/) 。**
 
 ## Demo 效果
 
@@ -101,7 +101,9 @@ protected void onStop() {
 
 ![](https://diycode.b0.upaiyun.com/photo/2017/01b87d582182e34dac091269a5e8d7ba.gif)
 
+更新一个 demo 展示，如下图，在完善了下拉刷新和上拉加载后，代码依旧不超过 300 行，去除导包只有注释大约 200 行左右。
 
+![](https://ww1.sinaimg.cn/large/006tKfTcly1fdlp10opypg308c0et7wj.gif)
 
 ## 如何添加
 
@@ -122,7 +124,7 @@ allprojects {
 
 ``` gradle
 dependencies {
-        compile 'com.github.gcssloop:diycode-sdk:0.0.4'
+        compile 'com.github.gcssloop:diycode-sdk:0.0.5'
 }
 ```
 ## 常见问题
@@ -156,7 +158,49 @@ public void onTopicDetail(GetTopicEvent event) {
 
 例如：用户多次调用上拉加载函数，我们只想保留第一次请求成功的结果，并且忽略后续重复的请求，就可以将请求同一区间数据的 uuid 全部记录下来，当返回结果属于这些 uuid 并且成功时，更新状态，并且忽略后续请求结果。
 
-#### 3. Diycode SDK 有缓存机制吗
+#### 3. 如何区分请求
+
+如果是请求的是不同数据类型，那么返回的接口是不同的，很容易区分，但是**当请求的是同一数据类型，但作用不同时该如何区分？如 Demo 中第 2 个例子，里面涉及了两种请求，下拉刷新和上拉加载，所有数据返回都是使用 GetTopicsListEvent 接收，此时就要使用到 uuid 了，核心思想是请求时记录 uuid 和其对应的类型，接收时根据 uuid 判断请求类型：**
+
+```java
+// 请求状态 - 下拉刷新 还是 加载更多
+private static final String POST_LOAD_MORE = "load_more";
+private static final String POST_REFRESH = "refresh";
+private ArrayMap<String, String> mPostTypes = new ArrayMap<>();    // 请求类型
+
+// 刷新
+private void refresh() {
+    ...
+    String uuid = mDiycode.getTopicsList(null, null, pageIndex * pageCount, pageCount);
+    mPostTypes.put(uuid, POST_REFRESH);
+    ...
+}
+
+// 加载更多
+private void loadMore() {
+  	...
+    String uuid = mDiycode.getTopicsList(null, null, pageIndex * pageCount, pageCount);
+    mPostTypes.put(uuid, POST_LOAD_MORE);
+    ...
+}
+
+@Subscribe(threadMode = ThreadMode.MAIN)
+public void onTopicList(GetTopicsListEvent event) {
+    String postType = mPostTypes.get(event.getUUID());	// 获取请求类型
+    if (event.isOk()) {
+        if (postType.equals(POST_LOAD_MORE)) {
+           	// 是加载更多
+        } else if (postType.equals(POST_REFRESH)) {
+            // 是下拉刷新
+        }
+    } else {
+        // 出现错误
+    }
+    mPostTypes.remove(event.getUUID());	// uuid 完成使命，从存储中移除
+}
+```
+
+#### 4. Diycode SDK 有缓存机制吗
 
 就目前而言是没有的，Diycode SDK 仅仅是一个 api 的再次封装，如果是需要缓存建议放在上层应用，或者重新抽象一个数据层出来。
 
