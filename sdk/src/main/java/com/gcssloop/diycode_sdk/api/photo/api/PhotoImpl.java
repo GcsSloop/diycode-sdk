@@ -26,14 +26,14 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.gcssloop.diycode_sdk.api.base.callback.BaseCallback;
-import com.gcssloop.diycode_sdk.api.base.implement.BaseImplement;
+import com.gcssloop.diycode_sdk.api.base.implement.BaseImpl;
 import com.gcssloop.diycode_sdk.api.photo.event.UploadPhotoEvent;
 import com.gcssloop.diycode_sdk.utils.UUIDGenerator;
 
 import java.io.File;
 
-public class PhotoImplement extends BaseImplement<PhotoService> implements PhotoAPI {
-    public PhotoImplement(@NonNull Context context) {
+public class PhotoImpl extends BaseImpl<PhotoService> implements PhotoAPI {
+    public PhotoImpl(@NonNull Context context) {
         super(context);
     }
 

@@ -13,37 +13,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-03-09 00:34:31
+ * Last modified 2017-03-08 01:01:18
  *
  * GitHub:  https://github.com/GcsSloop
  * Website: http://www.gcssloop.com
  * Weibo:   http://weibo.com/GcsSloop
  */
 
-package com.gcssloop.diycode_sdk.api.sites.api;
+package com.gcssloop.diycode_sdk.api.test.api;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.gcssloop.diycode_sdk.api.base.callback.BaseCallback;
-import com.gcssloop.diycode_sdk.api.base.implement.BaseImplement;
-import com.gcssloop.diycode_sdk.api.sites.event.GetSitesEvent;
+import com.gcssloop.diycode_sdk.api.base.implement.BaseImpl;
+import com.gcssloop.diycode_sdk.api.test.Event.HelloEvent;
 import com.gcssloop.diycode_sdk.utils.UUIDGenerator;
 
-public class SitesImplements extends BaseImplement<SitesService> implements SitesAPI {
-    public SitesImplements(@NonNull Context context) {
+public class TestImpl extends BaseImpl<TestService> implements TestAPI {
+    public TestImpl(@NonNull Context context) {
         super(context);
     }
 
     /**
-     * 获取 酷站 列表
+     * 简单的 API 测试接口，需要登录验证，便于快速测试 OAuth 以及其他 API 的基本格式是否正确。
+     * 使用 HelloEvent 接收结果。
      *
-     * @see GetSitesEvent
+     * @param limit 数量极限，值范围[0..100]
+     * @see HelloEvent
      */
     @Override
-    public String getSites() {
-        String uuid = UUIDGenerator.getUUID();
-        mService.getSites().enqueue(new BaseCallback<>(new GetSitesEvent(uuid)));
+    public String hello(@Nullable Integer limit) {
+        final String uuid = UUIDGenerator.getUUID();
+        mService.hello(limit).enqueue(new BaseCallback<>(new HelloEvent(uuid)));
         return uuid;
     }
 }
