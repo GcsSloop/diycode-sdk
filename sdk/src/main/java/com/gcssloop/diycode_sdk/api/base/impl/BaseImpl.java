@@ -20,7 +20,7 @@
  * Weibo:   http://weibo.com/GcsSloop
  */
 
-package com.gcssloop.diycode_sdk.api.base.implement;
+package com.gcssloop.diycode_sdk.api.base.impl;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -87,7 +87,6 @@ public class BaseImpl<Service> {
                     return chain.proceed(originalRequest);
                 }
                 String token = OAuth.TOKEN_PREFIX + mCacheUtil.getToken().getAccess_token();
-                Logger.i("AutoToken:" + token); // 查看 token 是否异常
                 // 为请求附加 token
                 Request authorised = originalRequest.newBuilder()
                         .header(OAuth.KEY_TOKEN, token)
@@ -153,15 +152,16 @@ public class BaseImpl<Service> {
         return !(null == token || token.isEmpty() || originalRequest.url().toString().contains(Constant.OAUTH_URL));
     }
 
+    interface TokenService {
+        /**
+         * 刷新 token
+         */
+        @POST(Constant.OAUTH_URL)
+        @FormUrlEncoded
+        Call<Token> refreshToken(@Field("client_id") String client_id, @Field("client_secret") String client_secret,
+                                 @Field("grant_type") String grant_type, @Field("refresh_token") String refresh_token);
+    }
 }
 
 
-interface TokenService {
-    /**
-     * 刷新 token
-     */
-    @POST(Constant.OAUTH_URL)
-    @FormUrlEncoded
-    Call<Token> refreshToken(@Field("client_id") String client_id, @Field("client_secret") String client_secret,
-                             @Field("grant_type") String grant_type, @Field("refresh_token") String refresh_token);
-}
+

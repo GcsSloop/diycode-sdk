@@ -47,6 +47,11 @@ public interface LoginAPI {
      */
     void logout();
 
+    /**
+     * 是否登录
+     * @return 是否登录
+     */
+    boolean isLogin();
 
     //--- token ------------------------------------------------------------------------------------
 

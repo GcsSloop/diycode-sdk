@@ -28,7 +28,7 @@ import android.support.annotation.NonNull;
 import com.gcssloop.diycode_sdk.api.base.bean.OAuth;
 import com.gcssloop.diycode_sdk.api.base.callback.BaseCallback;
 import com.gcssloop.diycode_sdk.api.base.callback.TokenCallback;
-import com.gcssloop.diycode_sdk.api.base.implement.BaseImpl;
+import com.gcssloop.diycode_sdk.api.base.impl.BaseImpl;
 import com.gcssloop.diycode_sdk.api.login.bean.Token;
 import com.gcssloop.diycode_sdk.api.login.event.DeleteDevicesEvent;
 import com.gcssloop.diycode_sdk.api.login.event.LoginEvent;
@@ -69,6 +69,16 @@ public class LoginImpl extends BaseImpl<LoginService> implements LoginAPI {
     public void logout() {
         // 清除token
         mCacheUtil.clearToken();
+    }
+
+    /**
+     * 是否登录
+     *
+     * @return 是否登录
+     */
+    @Override
+    public boolean isLogin() {
+        return !(mCacheUtil.getToken() == null);
     }
 
     /**

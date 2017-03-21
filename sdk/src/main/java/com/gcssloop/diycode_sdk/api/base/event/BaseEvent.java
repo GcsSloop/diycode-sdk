@@ -68,7 +68,6 @@ public class BaseEvent<T> {
         this.t = t;
     }
 
-
     /**
      * @param code 网络返回码
      * @param t    实体数据
@@ -78,27 +77,6 @@ public class BaseEvent<T> {
         this.code = code;
         this.t = t;
         return this;
-    }
-
-    /**
-     * 设置错误信息
-     *
-     * @param code
-     * @param error
-     */
-    public BaseEvent setError(@NonNull Integer code, @Nullable Error error) {
-        this.ok = false;
-        this.code = code;
-        this.error = error;
-        return this;
-    }
-
-    /**
-     * 获取错误信息
-     * @return 错误信息
-     */
-    public Error getError() {
-        return error;
     }
 
     /**
