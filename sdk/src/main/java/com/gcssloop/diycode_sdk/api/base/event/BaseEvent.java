@@ -46,7 +46,6 @@ public class BaseEvent<T> {
     protected boolean ok = false;       // 是否获取实体数据(T)成功
     protected Integer code = -1;        // 状态码
     protected T t;                      // 实体类
-    private Error error;                // 错误信息
 
     /**
      * @param uuid 唯一识别码
