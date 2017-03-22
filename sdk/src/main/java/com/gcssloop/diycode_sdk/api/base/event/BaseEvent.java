@@ -25,8 +25,6 @@ package com.gcssloop.diycode_sdk.api.base.event;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.gcssloop.diycode_sdk.api.base.bean.Error;
-
 /**
  * 所有 Event 的基类
  * <p>
