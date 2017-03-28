@@ -93,7 +93,7 @@ protected void onStop() {
 }
 ```
 
-**如果想要了解更多的 API 的话请查看 [在线文档](https://jitpack.io/com/github/GcsSloop/diycode-sdk/0.0.8/javadoc/) 。**
+**如果想要了解更多的 API 的话请查看 [在线文档](https://jitpack.io/com/github/GcsSloop/diycode-sdk/0.1.0/javadoc/) 。**
 
 ## Demo 效果
 
@@ -124,7 +124,7 @@ allprojects {
 
 ``` gradle
 dependencies {
-        compile 'com.github.gcssloop:diycode-sdk:0.0.8'
+        compile 'com.github.gcssloop:diycode-sdk:0.1.0'
 }
 ```
 ## 常见问题
