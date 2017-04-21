@@ -124,7 +124,7 @@ allprojects {
 
 ``` gradle
 dependencies {
-        compile 'com.github.gcssloop:diycode-sdk:0.1.0'
+    compile 'com.github.gcssloop:diycode-sdk:0.1.0'
 }
 ```
 ## 常见问题
