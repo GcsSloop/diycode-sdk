@@ -88,6 +88,7 @@ import com.gcssloop.diycode_sdk.api.user.event.BlockUserEvent;
 import com.gcssloop.diycode_sdk.api.user.event.FollowUserEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetMeEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUserBlockedListEvent;
+import com.gcssloop.diycode_sdk.api.user.event.GetUserCollectionTopicListEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUserCreateTopicListEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUserEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUserFollowerListEvent;
