@@ -23,6 +23,7 @@
 package com.gcssloop.diycode_sdk.api.user.api;
 
 import com.gcssloop.diycode_sdk.api.base.bean.State;
+import com.gcssloop.diycode_sdk.api.notifications.bean.Reply;
 import com.gcssloop.diycode_sdk.api.topic.bean.Topic;
 import com.gcssloop.diycode_sdk.api.user.bean.User;
 import com.gcssloop.diycode_sdk.api.user.bean.UserDetail;
@@ -186,6 +187,6 @@ interface UserService {
      * @return 话题列表
      */
     @GET("users/{login}/replies.json")
-    Call<List<Topic>> getUserReplyTopicList(@Path("login") String login_name, @Query("order") String order,
-                                        @Query("offset") Integer offset, @Query("limit") Integer limit);
+    Call<List<Reply>> getUserReplyTopicList(@Path("login") String login_name, @Query("order") String order,
+                                            @Query("offset") Integer offset, @Query("limit") Integer limit);
 }
