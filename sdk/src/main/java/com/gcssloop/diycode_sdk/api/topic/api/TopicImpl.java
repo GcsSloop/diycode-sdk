@@ -260,10 +260,15 @@ public class TopicImpl extends BaseImpl<TopicService> implements TopicAPI {
         return uuid;
     }
 
+    /**
+     * 获取 topic 分类列表
+     *
+     * @see GetTopicNodeListEvent
+     */
     @Override
     public String getTopicNodesList() {
         final String uuid = UUIDGenerator.getUUID();
         mService.getTopicNodeList().enqueue(new BaseCallback<>(new GetTopicNodeListEvent(uuid)));
-        return null;
+        return uuid;
     }
 }
