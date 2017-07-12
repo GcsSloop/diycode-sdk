@@ -47,7 +47,7 @@ public interface NewsAPI {
      * @param node_id 节点 id
      * @see CreateNewsEvent
      */
-    String createNews(@NonNull Integer title, @NonNull Integer address, @NonNull Integer node_id);
+    String createNews(@NonNull String title, @NonNull String address, @NonNull Integer node_id);
 
     /**
      * 获取 news 回帖列表

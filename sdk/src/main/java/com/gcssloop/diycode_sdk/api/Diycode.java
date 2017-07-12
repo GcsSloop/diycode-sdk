@@ -523,7 +523,7 @@ public class Diycode implements LoginAPI, LikesAPI, TestAPI, TopicAPI, NewsAPI, 
      * @see CreateNewsEvent
      */
     @Override
-    public String createNews(@NonNull Integer title, @NonNull Integer address,
+    public String createNews(@NonNull String title, @NonNull String address,
                              @NonNull Integer node_id) {
         return sNewsImpl.createNews(title, address, node_id);
     }
