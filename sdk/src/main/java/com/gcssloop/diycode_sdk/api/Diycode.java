@@ -499,7 +499,6 @@ public class Diycode implements LoginAPI, LikesAPI, TestAPI, TopicAPI, NewsAPI, 
     }
     /**
      * 获取 topic 分类列表
-     *
      * @see GetTopicNodeListEvent
      */
     @Override
