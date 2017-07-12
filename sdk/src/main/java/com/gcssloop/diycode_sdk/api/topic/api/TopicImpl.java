@@ -28,7 +28,6 @@ import android.support.annotation.Nullable;
 
 import com.gcssloop.diycode_sdk.api.base.callback.BaseCallback;
 import com.gcssloop.diycode_sdk.api.base.impl.BaseImpl;
-import com.gcssloop.diycode_sdk.api.topic.bean.Node;
 import com.gcssloop.diycode_sdk.api.topic.event.BanTopicEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.CollectionTopicEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.CreateTopicEvent;
@@ -46,8 +45,6 @@ import com.gcssloop.diycode_sdk.api.topic.event.UpdateTopicEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.UpdateTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.WatchTopicEvent;
 import com.gcssloop.diycode_sdk.utils.UUIDGenerator;
-
-import java.util.List;
 
 public class TopicImpl extends BaseImpl<TopicService> implements TopicAPI {
 
@@ -264,9 +261,9 @@ public class TopicImpl extends BaseImpl<TopicService> implements TopicAPI {
     }
 
     @Override
-    public String getNewsNodesList() {
+    public String getTopicNodesList() {
         final String uuid = UUIDGenerator.getUUID();
-        mService.getTopicNodeList().enqueue(new BaseCallback<List<Node>>(new GetTopicNodeListEvent(uuid)));
+        mService.getTopicNodeList().enqueue(new BaseCallback<>(new GetTopicNodeListEvent(uuid)));
         return null;
     }
 }
