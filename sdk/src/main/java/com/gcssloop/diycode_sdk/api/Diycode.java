@@ -73,6 +73,7 @@ import com.gcssloop.diycode_sdk.api.topic.event.CreateTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.DeleteTopicEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.DeleteTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicEvent;
+import com.gcssloop.diycode_sdk.api.topic.event.GetTopicNodeListEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicRepliesListEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicsListEvent;
@@ -97,9 +98,9 @@ import com.gcssloop.diycode_sdk.api.user.event.GetUserReplyTopicListEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUsersListEvent;
 import com.gcssloop.diycode_sdk.api.user.event.UnBlockUserEvent;
 import com.gcssloop.diycode_sdk.api.user.event.UnFollowUserEvent;
-import com.gcssloop.diycode_sdk.utils.DebugUtil;
 import com.gcssloop.diycode_sdk.log.Config;
 import com.gcssloop.diycode_sdk.log.Logger;
+import com.gcssloop.diycode_sdk.utils.DebugUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -495,6 +496,15 @@ public class Diycode implements LoginAPI, LikesAPI, TestAPI, TopicAPI, NewsAPI, 
     @Override
     public String banTopic(@NonNull int id) {
         return sTopicImplement.banTopic(id);
+    }
+    /**
+     * 获取 topic 分类列表
+     *
+     * @see GetTopicNodeListEvent
+     */
+    @Override
+    public String getTopicNodesList() {
+        return sTopicImplement.getTopicNodesList();
     }
 
 

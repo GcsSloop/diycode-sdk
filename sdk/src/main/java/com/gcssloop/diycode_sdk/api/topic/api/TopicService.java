@@ -23,6 +23,7 @@
 package com.gcssloop.diycode_sdk.api.topic.api;
 
 import com.gcssloop.diycode_sdk.api.base.bean.State;
+import com.gcssloop.diycode_sdk.api.topic.bean.Node;
 import com.gcssloop.diycode_sdk.api.topic.bean.Topic;
 import com.gcssloop.diycode_sdk.api.topic.bean.TopicContent;
 import com.gcssloop.diycode_sdk.api.topic.bean.TopicReply;
@@ -213,4 +214,7 @@ interface TopicService {
     @POST("topics/{id}/ban.json")
     @FormUrlEncoded
     Call<State> banTopic(@Path("id") int id);
+
+    @GET("nodes.json")
+    Call<List<Node>> getTopicNodeList();
 }
