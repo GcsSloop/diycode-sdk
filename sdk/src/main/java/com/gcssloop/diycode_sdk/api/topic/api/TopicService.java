@@ -112,7 +112,6 @@ interface TopicService {
      * @return 状态信息
      */
     @POST("topics/{id}/favorite.json")
-    @FormUrlEncoded
     Call<State> collectionTopic(@Path("id") int id);
 
     /**
@@ -122,7 +121,6 @@ interface TopicService {
      * @return 状态信息
      */
     @POST("topics/{id}/unfavorite.json")
-    @FormUrlEncoded
     Call<State> unCollectionTopic(@Path("id") int id);
 
 
