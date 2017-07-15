@@ -31,6 +31,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -65,6 +66,7 @@ interface NotificationsService {
      */
     @Deprecated
     @POST("notifications/read.json")
+    @FormUrlEncoded
     Call<State> markNotificationAsRead(@Field("ids") int[] ids);
 
 

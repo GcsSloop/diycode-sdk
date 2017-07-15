@@ -25,9 +25,9 @@ package com.gcssloop.diycode_sdk.api.likes.api;
 import com.gcssloop.diycode_sdk.api.base.bean.State;
 
 import retrofit2.Call;
-import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.HTTP;
 import retrofit2.http.POST;
 
 interface LikesService {
@@ -51,7 +51,8 @@ interface LikesService {
      * @param obj_id   id
      * @return 是否成功
      */
-    @DELETE("likes.json")
+//    @DELETE("likes.json")
     @FormUrlEncoded
+    @HTTP(method = "DELETE", path = "likes.json", hasBody = true)
     Call<State> unLike(@Field("obj_type") String obj_type, @Field("obj_id") Integer obj_id);
 }
