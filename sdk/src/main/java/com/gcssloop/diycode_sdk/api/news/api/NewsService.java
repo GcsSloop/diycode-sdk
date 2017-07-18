@@ -62,7 +62,7 @@ interface NewsService {
      */
     @POST("news.json")
     @FormUrlEncoded
-    Call<New> createNews(@Field("title") Integer title, @Field("address") Integer address,
+    Call<New> createNews(@Field("title") String title, @Field("address") String address,
                          @Field("node_id") Integer node_id);
 
     /**

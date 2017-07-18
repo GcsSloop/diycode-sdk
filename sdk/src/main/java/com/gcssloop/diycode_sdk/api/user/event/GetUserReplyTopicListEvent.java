@@ -26,16 +26,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.gcssloop.diycode_sdk.api.base.event.BaseEvent;
-import com.gcssloop.diycode_sdk.api.topic.bean.Topic;
+import com.gcssloop.diycode_sdk.api.notifications.bean.Reply;
 
 import java.util.List;
 
-public class GetUserReplyTopicListEvent extends BaseEvent<List<Topic>> {
+public class GetUserReplyTopicListEvent extends BaseEvent<List<Reply>> {
     public GetUserReplyTopicListEvent(@Nullable String uuid) {
         super(uuid);
     }
 
-    public GetUserReplyTopicListEvent(@Nullable String uuid, @NonNull Integer code, @Nullable List<Topic> topics) {
+    public GetUserReplyTopicListEvent(@Nullable String uuid, @NonNull Integer code, @Nullable List<Reply> topics) {
         super(uuid, code, topics);
     }
 }

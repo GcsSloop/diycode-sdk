@@ -68,7 +68,7 @@ public class NewsImpl extends BaseImpl<NewsService> implements NewsAPI {
      * @see CreateNewsEvent
      */
     @Override
-    public String createNews(@NonNull Integer title, @NonNull Integer address, @NonNull Integer node_id) {
+    public String createNews(@NonNull String title, @NonNull String address, @NonNull Integer node_id) {
         String uuid = UUIDGenerator.getUUID();
         mService.createNews(title, address, node_id).enqueue(new BaseCallback<>(new CreateNewsEvent(uuid)));
         return uuid;

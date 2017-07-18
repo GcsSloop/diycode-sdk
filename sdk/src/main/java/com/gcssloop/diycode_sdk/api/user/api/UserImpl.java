@@ -216,7 +216,7 @@ public class UserImpl extends BaseImpl<UserService> implements UserAPI {
      * @param login_name 登录用户名(非昵称)
      * @param offset     偏移数值，默认值 0
      * @param limit      数量极限，默认值 20，值范围 1..150
-     * @see GetUserCreateTopicListEvent
+     * @see GetUserCollectionTopicListEvent
      */
     @Override
     public String getUserCollectionTopicList(@NonNull String login_name, @Nullable Integer offset,

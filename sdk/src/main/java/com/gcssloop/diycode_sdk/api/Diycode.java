@@ -73,6 +73,7 @@ import com.gcssloop.diycode_sdk.api.topic.event.CreateTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.DeleteTopicEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.DeleteTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicEvent;
+import com.gcssloop.diycode_sdk.api.topic.event.GetTopicNodeListEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicRepliesListEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicsListEvent;
@@ -88,6 +89,7 @@ import com.gcssloop.diycode_sdk.api.user.event.BlockUserEvent;
 import com.gcssloop.diycode_sdk.api.user.event.FollowUserEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetMeEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUserBlockedListEvent;
+import com.gcssloop.diycode_sdk.api.user.event.GetUserCollectionTopicListEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUserCreateTopicListEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUserEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUserFollowerListEvent;
@@ -96,9 +98,9 @@ import com.gcssloop.diycode_sdk.api.user.event.GetUserReplyTopicListEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUsersListEvent;
 import com.gcssloop.diycode_sdk.api.user.event.UnBlockUserEvent;
 import com.gcssloop.diycode_sdk.api.user.event.UnFollowUserEvent;
-import com.gcssloop.diycode_sdk.utils.DebugUtil;
 import com.gcssloop.diycode_sdk.log.Config;
 import com.gcssloop.diycode_sdk.log.Logger;
+import com.gcssloop.diycode_sdk.utils.DebugUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -495,6 +497,14 @@ public class Diycode implements LoginAPI, LikesAPI, TestAPI, TopicAPI, NewsAPI, 
     public String banTopic(@NonNull int id) {
         return sTopicImplement.banTopic(id);
     }
+    /**
+     * 获取 topic 分类列表
+     * @see GetTopicNodeListEvent
+     */
+    @Override
+    public String getTopicNodesList() {
+        return sTopicImplement.getTopicNodesList();
+    }
 
 
     //--- news -------------------------------------------------------------------------------------
@@ -522,7 +532,7 @@ public class Diycode implements LoginAPI, LikesAPI, TestAPI, TopicAPI, NewsAPI, 
      * @see CreateNewsEvent
      */
     @Override
-    public String createNews(@NonNull Integer title, @NonNull Integer address,
+    public String createNews(@NonNull String title, @NonNull String address,
                              @NonNull Integer node_id) {
         return sNewsImpl.createNews(title, address, node_id);
     }
@@ -757,7 +767,7 @@ public class Diycode implements LoginAPI, LikesAPI, TestAPI, TopicAPI, NewsAPI, 
      * @param login_name 登录用户名(非昵称)
      * @param offset     偏移数值，默认值 0
      * @param limit      数量极限，默认值 20，值范围 1..150
-     * @see GetUserCreateTopicListEvent
+     * @see GetUserCollectionTopicListEvent
      */
     @Override
     public String getUserCollectionTopicList(@NonNull String login_name, @Nullable Integer offset,

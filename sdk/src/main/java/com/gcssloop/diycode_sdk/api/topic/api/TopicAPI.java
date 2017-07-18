@@ -32,6 +32,7 @@ import com.gcssloop.diycode_sdk.api.topic.event.CreateTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.DeleteTopicEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.DeleteTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicEvent;
+import com.gcssloop.diycode_sdk.api.topic.event.GetTopicNodeListEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicRepliesListEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicsListEvent;
@@ -190,5 +191,12 @@ public interface TopicAPI {
      * @see BanTopicEvent
      */
     String banTopic(@NonNull int id);
+
+    /**
+     * 获取 topic 分类列表
+     *
+     * @see GetTopicNodeListEvent
+     */
+    String getTopicNodesList();
 
 }

@@ -35,6 +35,7 @@ import com.gcssloop.diycode_sdk.api.topic.event.CreateTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.DeleteTopicEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.DeleteTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicEvent;
+import com.gcssloop.diycode_sdk.api.topic.event.GetTopicNodeListEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicRepliesListEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicReplyEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicsListEvent;
@@ -256,6 +257,18 @@ public class TopicImpl extends BaseImpl<TopicService> implements TopicAPI {
     public String banTopic(@NonNull int id) {
         final String uuid = UUIDGenerator.getUUID();
         mService.banTopic(id).enqueue(new BaseCallback<>(new BanTopicEvent(uuid)));
+        return uuid;
+    }
+
+    /**
+     * 获取 topic 分类列表
+     *
+     * @see GetTopicNodeListEvent
+     */
+    @Override
+    public String getTopicNodesList() {
+        final String uuid = UUIDGenerator.getUUID();
+        mService.getTopicNodeList().enqueue(new BaseCallback<>(new GetTopicNodeListEvent(uuid)));
         return uuid;
     }
 }
